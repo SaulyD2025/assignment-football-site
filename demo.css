@@ -1,0 +1,14 @@
+.navbar {
+    background: linear-gradient(to bottom, #424549, #1e2124)
+}
+
+#background{
+    min-height: 95vh;
+    min-width: 100vh;
+    background: linear-gradient(to bottom, #424549, #1e2124)
+}
+
+#sidebar-left {
+    min-height: 100vh;
+}
+
