@@ -10,5 +10,42 @@
 
 #sidebar-left {
     min-height: 100vh;
+    text-align: center;
 }
 
+#maindisplay {
+    text-align: center;
+}
+
+#sidebar-right {
+    text-align: center;
+}
+
+#login-icon {
+    font-size: 2em;
+    transition: color 1s ease;
+}
+
+.match-card {
+    background-color: #282b30;
+}
+
+#loginbutton {
+    transition: background-color 1s ease;
+}
+
+#registerbutton {
+    transition: background-color 1s ease;
+}
+
+#login-icon:hover {
+    color: white;
+}
+
+#loginbutton:hover {
+    background-color: #7289da;
+}
+
+#registerbutton:hover {
+    background-color: #7289da;
+}
