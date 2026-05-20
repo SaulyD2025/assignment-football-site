@@ -1,0 +1,130 @@
+@font-face {
+    font-family: "BDOGrotesk";
+    src: url("../fonts/BDOGrotesk-Regular.woff2");
+}
+
+
+.navbar {
+    background: linear-gradient(to bottom, #424549, #1e2124)
+}
+
+#background{
+    min-height: 95vh;
+    min-width: 100vh;
+    background-color: black;
+}
+
+#sidebar-left {
+    min-height: 90vh;
+    text-align: center;
+    background-color: #1d1d1d;
+}
+
+#maindisplay {
+    text-align: center;
+    background-color: #1d1d1d;
+    height: 90vh;
+    overflow-y: scroll;
+}
+
+#sidebar-right {
+    text-align: center;
+}
+
+#login-icon {
+    font-size: 2em;
+    transition: color 1s ease;
+}
+
+#leaguetable-icon {
+    font-size: 1.85em;
+    margin-right: 10px;
+}
+
+.match-card {
+    background-color: #262626;
+}
+
+#loginbutton {
+    transition: background-color 1s ease;
+}
+
+#registerbutton {
+    transition: background-color 1s ease;
+}
+
+#login-icon:hover {
+    color: white;
+}
+
+#loginbutton:hover {
+    background-color: #7289da;
+}
+
+#registerbutton:hover {
+    background-color: #7289da;
+}
+
+.slider-label {
+    font-size: 1.0em;
+}
+
+#rangeSubmit {
+    background-color: #333333;
+}
+
+body {
+    font-family: Roboto;
+}
+
+#pagination-parent {
+}
+
+#loginMenu {
+    background-color: #1d1d1d;
+    text-align: center;
+}
+
+#loginContainer {
+    margin-top: 15vh;
+}
+
+#registerMenu {
+    background-color: #1d1d1d;
+    text-align: center;
+}
+
+#registerContainer {
+    margin-top: 15vh;
+}
+
+#leagueTable {
+    background-color: #1d1d1d;
+    text-align: center;
+    overflow-y: scroll;
+    height: 90vh;
+}
+
+#leagueContainer {
+    margin-top: 5vh;
+}
+
+#premierLeague-icon {
+    position: absolute;
+    left: 73vh;
+    bottom: 76vh;
+}
+
+.tableHeader {
+    font-size: 1em;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    background-color: #1d1d1d;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #262626;
+    border-radius: 20px;
+}
