@@ -1,7 +1,7 @@
 const leagueContainer = document.querySelector('#leagueTableContainer');
 let tableResults;
 
-fetch(`../php/leaguetable.php`,)
+fetch(`/php/leaguetablefetch.php`,)
     .then(response => response.json()).then(data => {
     tableResults = data.standings;
     console.log(tableResults);

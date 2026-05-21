@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demo Website</title>
-    <link rel="stylesheet" href="../styles/style.css">
+    <title>Trequartista Football News</title>
+    <link rel="stylesheet" href="styles/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-xxl">
-            <a href="index.html" class="navbar-brand">
-                <img src="../img/Illustration8.5.png" alt="" height="70" width="70" id="brand-logo">
+            <a href="index.php" class="navbar-brand">
+                <img src="img/Illustration8.5.png" alt="" height="70" width="70" id="brand-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
                 <span class="navbar-toggler-icon"></span>
@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
                     <li class="nav-item align-self center mr-3">
-                        <a href="leaguetable.php" class="nav-link fw-bold">
+                        <a href="php-pages/leaguetable.php" class="nav-link fw-bold">
                             <i class="bi bi-file-ruled" id="leaguetable-icon"></i>
                         </a>
                     </li>
@@ -29,8 +29,8 @@
                             <i class="bi bi-person" id="login-icon"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end bg-dark">
-                            <li><a href="login.php" class="dropdown-item text-white" id="loginbutton">Login</a></li>
-                            <li><a href="register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>
+                            <li><a href="php-pages/login.php" class="dropdown-item text-white" id="loginbutton">Login</a></li>
+                            <li><a href="php-pages/register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -84,7 +84,7 @@
                         <section class="my-5" id="matchCards">
                         </section>
     </div>
-    <script src="../js/index.js"></script>
+    <script src="js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
 </html>

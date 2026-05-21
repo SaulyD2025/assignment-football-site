@@ -34,7 +34,7 @@ settingsSubmit.addEventListener('click', (e) => {
     dateNumber.textContent = `${currentDateOffset} months`;
     futureDate = new Date(new Date(currentDate).setMonth(currentDate.getMonth() + currentDateOffset)).toISOString().slice(0, 10);
     dates.futureday = futureDate;
-    fetch('../php/index.php', {
+    fetch('/php/indexfetch.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ function createMatchCard(result) {
 
 console.log(JSON.stringify(dates))
 
-fetch(`../php/index.php`, {
+fetch(`/php/indexfetch.php`, {
  method: 'POST',
   headers: {
       'Content-Type': 'application/json',
