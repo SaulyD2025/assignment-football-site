@@ -7,7 +7,7 @@
 
     $host = 'localhost';
     $user = 'xsqcijsd';
-    $password = '.R6hjdR26p1K(D';
+    $password = 'w!Tje4P44Hor6Xce(y';
     $dbname = 'xsqcijsd_users';
 
     $dsn = "mysql:host=$host;dbname=$dbname";

@@ -10,12 +10,12 @@
 
 #background{
     min-height: 95vh;
-    min-width: 100vh;
+    min-width: 100vw;
     background-color: black;
 }
 
 #sidebar-left {
-    min-height: 90vh;
+    min-height: 90vw;
     text-align: center;
     background-color: #1d1d1d;
 }
@@ -39,6 +39,11 @@
 #leaguetable-icon {
     font-size: 1.85em;
     margin-right: 10px;
+}
+
+#worldcup-icon {
+    font-size: 1.85em;
+    margin-right: 20px;
 }
 
 .match-card {
@@ -127,4 +132,20 @@ body {
 ::-webkit-scrollbar-thumb {
     background-color: #262626;
     border-radius: 20px;
+}
+
+.hidden {
+    display:none;
+}
+
+#loginbutton {
+
+}
+
+#registerbutton {
+
+}
+
+#logoutButton {
+    display: none;
 }

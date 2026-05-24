@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +22,12 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav">
-                    <li class="nav-item align-self center mr-3">
+                    <li class="nav-item align-self-center mr-3">
+                        <a href="php-pages/worldcup.php" class="nav-link fw-bold">
+                            <i class="bi bi-trophy" id="worldcup-icon"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item align-self-center mr-3">
                         <a href="php-pages/leaguetable.php" class="nav-link fw-bold">
                             <i class="bi bi-file-ruled" id="leaguetable-icon"></i>
                         </a>
@@ -31,18 +39,21 @@
                         <ul class="dropdown-menu dropdown-menu-end bg-dark">
                             <li><a href="php-pages/login.php" class="dropdown-item text-white" id="loginbutton">Login</a></li>
                             <li><a href="php-pages/register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>
+                            <li><a href="php/logout.php" class="dropdown-item text-white hidden" id="logoutButton">Log out</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <p class="hidden" id="session">
+        <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ''; ?>
+    </p>
     <div class="container-fluid pt-3" id="background">
         <section id="main-dash">
             <div class="container-fluid">
                 <div class="row justify-content-center">
-                    <div class="col-2 text-white border border-3 rounded border-dark shadow-lg" id="sidebar-left">
+                    <div class="col-md-2 col-11 text-white border border-3 rounded border-dark shadow-lg" id="sidebar-left">
                         <p class="h4 fw-bold mt-3">Settings</p>
                         <hr>
                         <section class="mt-1" id="cards">
@@ -84,6 +95,23 @@
                         <section class="my-5" id="matchCards">
                         </section>
     </div>
+    <script>
+        const session = document.getElementById('session');
+        const loginButton = document.getElementById('loginbutton');
+        const registerButton = document.getElementById('registerbutton');
+        const logoutButton = document.getElementById('logoutButton');
+
+        console.log(session.textContent.trim());
+
+        if (session.textContent.trim() !== '') {
+            loginButton.style.display = 'none';
+            registerButton.style.display = 'none';
+            logoutButton.style.display = 'block';
+        } else {
+            logoutButton.style.display = 'none';
+        }
+
+    </script>
     <script src="js/index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

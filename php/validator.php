@@ -16,6 +16,7 @@ class validator {
                 return;
             }
         }
+        $this->usernameMatcher();
         $this->validateUsername();
         $this->validatePassword();
         $this->passwordMatcher();
@@ -58,7 +59,7 @@ class validator {
     private function usernameMatcher() {
         $host = 'localhost';
         $user = 'xsqcijsd';
-        $password = '.R6hjdR26p1K(D';
+        $password = 'w!Tje4P44Hor6Xce(y';
         $dbname = 'xsqcijsd_users';
 
         $dsn = "mysql:host=$host;dbname=$dbname";
@@ -68,6 +69,14 @@ class validator {
         $username = $this->data['username'];
         $sql = 'SELECT * FROM MEMBERS WHERE username = :username';
         $stmt = $pdo->prepare($sql);
+        $stmt->execute([':username' => $username]);
+        $matches = $stmt->fetchAll();
+
+        foreach($matches as $match) {
+            if($match[':username' == $username]) {
+                $this->errorList('username', 'username already exists');
+            }
+        }
 
 
     }

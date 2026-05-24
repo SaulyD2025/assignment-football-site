@@ -1,18 +1,29 @@
 <?php
-
-    require('../php/config.php');
-    class User {
-        public $username = 'John Doe';
-        public $password = '123123';
-    }
-
-    $currentUser = new User();
-
-    echo $currentUser->username;
-    echo $currentUser->password;
-
+session_start();
 ?>
+<?php
+require('../php/config.php');
+require('../php/loginValidator.php');
 
+$host = 'localhost';
+$user = $_ENV['DB_USER'];
+$password = $_ENV['DB_PASS'];
+$dbname = $_ENV['USER_TABLE'];
+$loggedin = false;
+
+$dsn = "mysql:host=$host;port=3306;dbname=$dbname";
+
+$pdo = new PDO($dsn, $user, $password);
+
+if (isset($_POST['submitButton'])) {
+    $logValidation = new loginValidator($_POST);
+    $errors = $logValidation->validateForm();
+    if (empty($errors)) {
+        $_SESSION['username'] = $_POST['username'];
+        $loggedin = true;
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +45,11 @@
             </button>
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
                 <ul class="navbar-nav mr-5">
+                    <li class="nav-item align-self-center mr-3">
+                        <a href="worldcup.php" class="nav-link fw-bold">
+                            <i class="bi bi-trophy" id="worldcup-icon"></i>
+                        </a>
+                    </li>
                     <li class="nav-item align-self center mr-3">
                         <a href="leaguetable.php" class="nav-link fw-bold">
                             <i class="bi bi-file-ruled" id="leaguetable-icon"></i>
@@ -46,34 +62,72 @@
                         <ul class="dropdown-menu dropdown-menu-end bg-dark">
                             <li><a href="login.html" class="dropdown-item text-white" id="loginbutton">Login</a></li>
                             <li><a href="register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>
+                            <li><a href="../php/logout.php" class="dropdown-item text-white hidden" id="logoutButton">Log out</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <p class="hidden" id="session">
+        <?php echo isset($_SESSION['username']) ? $_SESSION['username'] : ""; ?>
+    </p>
     <div class="container-fluid pt-3" id="background">
       <div class="row justify-content-center" id="loginContainer">
-        <div class="col-4">
+        <div class="col-md-4 col-11">
           <div class="rounded text-white p-5" id="loginMenu">
             <p class="h4 fw-bold">Login below:</p>
             <hr>
+              <div class="lead text-success" id="successMessage">
+                  <?php echo htmlspecialchars(!empty($loggedin) ? 'Login successful! Redirecting...' : '')?>
+              </div>
             <form method="POST">
               <div class="form-group pt-3">
                 <label for="userNameInput" class="">Username:</label>
                 <input type="text" class="form-control" id="userNameInput" placeholder="Enter username:" name="username">
               </div>
+                <div class="lead text-danger">
+                    <?php echo htmlspecialchars(isset($errors['username']) ? $errors['username'] : '') ?>
+                </div>
               <div class="form-group pt-5">
                 <label for="passwordInput">Password:</label>
                 <input type="password" class="form-control" id="passwordInput" placeholder="Enter password:" name="password">
               </div>
+                <div class="lead text-danger">
+                    <?php echo htmlspecialchars(isset($errors['password']) ? $errors['password'] : '') ?>
+                </div>
               <button type="submit" id="loginSubmit" class="btn btn-dark border-light-subtle mt-5" name="submitButton">Submit</button>
             </form>
           </div>
         </div>
       </div>
     </div>
+    <script>
+        const session = document.getElementById('session');
+        const loginButton = document.getElementById('loginbutton');
+        const registerButton = document.getElementById('registerbutton');
+        const logoutButton = document.getElementById('logoutButton');
+
+        console.log(session.textContent.trim());
+
+        if (session.textContent.trim() !== '') {
+            loginButton.style.display = 'none';
+            registerButton.style.display = 'none';
+            logoutButton.style.display = 'block';
+        } else {
+            logoutButton.style.display = 'none';
+        }
+
+    </script>
+    <script>
+        const successMessage = document.getElementById('successMessage');
+
+        if (successMessage.textContent !== '') {
+            setTimeout(() => {
+                window.location.href = '../index.php';
+            }, 3000);
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
 </html>
