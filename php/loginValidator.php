@@ -27,9 +27,9 @@ class loginValidator
     private function usernameMatcher()
     {
         $host = 'localhost';
-        $user = 'xsqcijsd';
-        $password = 'w!Tje4P44Hor6Xce(y';
-        $dbname = 'xsqcijsd_users';
+        $user = $_ENV['DB_USER'];
+        $password = $_ENV['DB_PASS'];
+        $dbname = $_ENV['USER_TABLE'];
 
         $dsn = "mysql:host=$host;dbname=$dbname";
 
@@ -51,9 +51,9 @@ class loginValidator
         private function passwordMatcher()
         {
             $host = 'localhost';
-            $user = 'xsqcijsd';
-            $password = 'w!Tje4P44Hor6Xce(y';
-            $dbname = 'xsqcijsd_users';
+            $user = $_ENV['DB_USER'];
+            $password = $_ENV['DB_PASS'];
+            $dbname = $_ENV['USER_TABLE'];
 
             $dsn = "mysql:host=$host;dbname=$dbname";
 
