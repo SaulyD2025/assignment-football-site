@@ -17,10 +17,12 @@ class loginValidator
                 return;
             }
         }
-        $this->usernameMatcher();
-        $this->passwordMatcher();
         $this->validateUsername();
         $this->validatePassword();
+        if(empty($this->errors)) {
+            $this->usernameMatcher();
+            $this->passwordMatcher();
+        }
         return $this->errors;
     }
 
@@ -39,13 +41,11 @@ class loginValidator
         $sql = 'SELECT * FROM MEMBERS WHERE username = :username';
         $stmt = $pdo->prepare($sql);
         $stmt->execute([':username' => $username]);
-        $matches = $stmt->fetchAll();
+        $match = $stmt->fetch();
 
-        foreach ($matches as $match) {
-            if ($match['username'] !== $username) {
+            if (empty($match)) {
                 $this->errorList('username', 'username does not exist');
             }
-        }
     }
 
         private function passwordMatcher()
@@ -59,18 +59,18 @@ class loginValidator
 
             $pdo = new PDO($dsn, $user, $password);
 
-            $password = password_hash($this->data['password'], PASSWORD_DEFAULT);
-            $sql = 'SELECT * FROM MEMBERS WHERE password = :password';
+            $username = $this->data['username'];
+            $sql = 'SELECT * FROM MEMBERS WHERE username = :username';
             $stmt = $pdo->prepare($sql);
-            $stmt->execute([':password' => $password]);
-            $matches = $stmt->fetchAll();
+            $stmt->execute([':username' => $username]);
+            $match = $stmt->fetch();
 
-            foreach ($matches as $match) {
-                if ($match[':password' !== $password]) {
-                    $this->errorList('password', 'incorrect password');
-                }
+
+            if (!password_verify($this->data['password'], $match['password'])) {
+                $this->errorList('password', 'incorrect password');
             }
-        }
+            }
+
 
         private function validatePassword() {
             $value = trim($this->data['password']);

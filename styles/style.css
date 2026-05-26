@@ -70,6 +70,14 @@
     background-color: #7289da;
 }
 
+#logoutButton:hover {
+    background-color: #7289da;
+}
+
+#settingsButton:hover {
+    background-color: #7289da;
+}
+
 .slider-label {
     font-size: 1.0em;
 }
@@ -147,5 +155,9 @@ body {
 }
 
 #logoutButton {
+    display: none;
+}
+
+#settingsButton {
     display: none;
 }

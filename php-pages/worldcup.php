@@ -38,7 +38,8 @@ session_start();
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end bg-dark">
                         <li><a href="login.php" class="dropdown-item text-white" id="loginbutton">Login</a></li>
-                        <li><a href="register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>\
+                        <li><a href="register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>
+                        <li><a href="accountoptions.php" class="dropdown-item text-white hidden" id="settingsButton">Account settings</a></li>
                         <li><a href="../php/logout.php" class="dropdown-item text-white hidden" id="logoutButton">Log out</a></li>
                     </ul>
                 </li>
@@ -100,6 +101,7 @@ session_start();
                     const loginButton = document.getElementById('loginbutton');
                     const registerButton = document.getElementById('registerbutton');
                     const logoutButton = document.getElementById('logoutButton');
+                    const settingsButton = document.getElementById('settingsButton');
 
                     console.log(session.textContent.trim());
 
@@ -107,8 +109,10 @@ session_start();
                         loginButton.style.display = 'none';
                         registerButton.style.display = 'none';
                         logoutButton.style.display = 'block';
+                        settingsButton.style.display = 'block';
                     } else {
                         logoutButton.style.display = 'none';
+                        settingsButton.style.display = 'none';
                     }
 
                 </script>

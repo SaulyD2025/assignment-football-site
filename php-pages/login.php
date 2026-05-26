@@ -62,6 +62,7 @@ if (isset($_POST['submitButton'])) {
                         <ul class="dropdown-menu dropdown-menu-end bg-dark">
                             <li><a href="login.html" class="dropdown-item text-white" id="loginbutton">Login</a></li>
                             <li><a href="register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>
+                            <li><a href="accountoptions.php" class="dropdown-item text-white hidden" id="settingsButton">Account settings</a></li>
                             <li><a href="../php/logout.php" class="dropdown-item text-white hidden" id="logoutButton">Log out</a></li>
                         </ul>
                     </li>
@@ -107,6 +108,7 @@ if (isset($_POST['submitButton'])) {
         const loginButton = document.getElementById('loginbutton');
         const registerButton = document.getElementById('registerbutton');
         const logoutButton = document.getElementById('logoutButton');
+        const settingsButton = document.getElementById('settingsButton');
 
         console.log(session.textContent.trim());
 
@@ -114,15 +116,17 @@ if (isset($_POST['submitButton'])) {
             loginButton.style.display = 'none';
             registerButton.style.display = 'none';
             logoutButton.style.display = 'block';
+            settingsButton.style.display = 'block';
         } else {
             logoutButton.style.display = 'none';
+            settingsButton.style.display = 'none';
         }
 
     </script>
     <script>
         const successMessage = document.getElementById('successMessage');
 
-        if (successMessage.textContent !== '') {
+        if (successMessage.textContent.trim() !== '') {
             setTimeout(() => {
                 window.location.href = '../index.php';
             }, 3000);

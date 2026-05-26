@@ -39,6 +39,7 @@ session_start();
                         <ul class="dropdown-menu dropdown-menu-end bg-dark">
                             <li><a href="php-pages/login.php" class="dropdown-item text-white" id="loginbutton">Login</a></li>
                             <li><a href="php-pages/register.php" class="dropdown-item text-white" id="registerbutton">Register</a></li>
+                            <li><a href="php-pages/accountoptions.php" class="dropdown-item text-white hidden" id="settingsButton">Account settings</a></li>
                             <li><a href="php/logout.php" class="dropdown-item text-white hidden" id="logoutButton">Log out</a></li>
                         </ul>
                     </li>
@@ -81,6 +82,9 @@ session_start();
                     <div class="col-lg-6 col-sm-4 text-white border border-3 rounded border-dark shadow-lg" id="maindisplay" style="font-family: BDOGrotesk;">
                         <p class="h4 fw-bold my-3">Fixtures</p>
                         <hr>
+                        <div class="lead text-secondary">
+                            <?php echo "welcome, " . $_SESSION['username']; ?>
+                        </div>
                         <nav>
                             <ul class="pagination justify-content-center" id="pagination-parent">
                                 <li class="page-item" id="toFirst"><a href="#" class="page-link bg-dark "><<</a></li>
@@ -100,6 +104,7 @@ session_start();
         const loginButton = document.getElementById('loginbutton');
         const registerButton = document.getElementById('registerbutton');
         const logoutButton = document.getElementById('logoutButton');
+        const settingsButton = document.getElementById('settingsButton');
 
         console.log(session.textContent.trim());
 
@@ -107,8 +112,10 @@ session_start();
             loginButton.style.display = 'none';
             registerButton.style.display = 'none';
             logoutButton.style.display = 'block';
+            settingsButton.style.display = 'block';
         } else {
             logoutButton.style.display = 'none';
+            settingsButton.style.display = 'none';
         }
 
     </script>

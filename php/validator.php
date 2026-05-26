@@ -30,7 +30,7 @@ class validator {
             $this->errorList('username', 'username is required');
         } else {
             if(!preg_match('/^[a-zA-Z0-9]{6,12}$/', $value)) {
-                $this->errorList('username', 'username must consist of 6-12 alphanumeric characters');
+                $this->errorList('username', 'username must consist of 6-12 alphanumeric characters, with no special characters.');
             }
         }
     }
@@ -42,7 +42,7 @@ class validator {
             $this->errorList('password', 'password is required');
         } else {
             if(!preg_match('/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/', $value)) {
-                $this->errorList('password', 'password must consist of at least one letter, one number, and be above 8 characters');
+                $this->errorList('password', 'password must consist of at least one letter, one number, and be above 8 characters, and contain no special characters.');
             }
         }
     }
@@ -52,7 +52,7 @@ class validator {
         $cpass = $this->data['confirmPassword'];
 
         if ($pass !== $cpass) {
-            $this->errorList('confirmPassword', 'password does not match');
+            $this->errorList('confirmPassword', 'password does not match.');
         }
     }
 
@@ -74,7 +74,7 @@ class validator {
 
         foreach($matches as $match) {
             if($match[':username' == $username]) {
-                $this->errorList('username', 'username already exists');
+                $this->errorList('username', 'username already exists.');
             }
         }
 
