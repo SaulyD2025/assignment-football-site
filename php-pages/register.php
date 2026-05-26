@@ -41,36 +41,13 @@ session_start();
 <body>
     <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-xxl">
-            <a href="../index.php" class="navbar-brand">
+            <a href="#" class="navbar-brand">
                 <img src="../img/Illustration8.5.png" alt="" height="70" width="70" id="brand-logo">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
-                <ul class="navbar-nav mr-5">
-                    <li class="nav-item align-self-center mr-3">
-                        <a href="worldcup.php" class="nav-link fw-bold">
-                            <i class="bi bi-trophy" id="worldcup-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item align-self center mr-3">
-                        <a href="leaguetable.php" class="nav-link fw-bold">
-                            <i class="bi bi-file-ruled" id="leaguetable-icon"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown align-self-center ms-2">
-                        <a class="nav-link" href="#login" id="login-dropdown" data-bs-toggle="dropdown">
-                            <i class="bi bi-person" id="login-icon"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end bg-dark">
-                            <li><a href="login.php" class="dropdown-item text-white" id="loginbutton">Login</a></li>
-                            <li><a href="register.html" class="dropdown-item text-white" id="registerbutton">Register</a></li>
-                            <li><a href="accountoptions.php" class="dropdown-item text-white hidden" id="settingsButton">Account settings</a></li>
-                            <li><a href="../php/logout.php" class="dropdown-item text-white hidden" id="logoutButton">Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
             </div>
         </div>
     </nav>

@@ -161,3 +161,7 @@ body {
 #settingsButton {
     display: none;
 }
+
+#loginModal {
+    background-color: #1d1d1d;
+}

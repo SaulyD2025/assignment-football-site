@@ -107,12 +107,35 @@ if (isset($_POST['submitButton'])) {
         </div>
     </div>
 </div>
+<div class="modal fade" id="loginModal" tabindex="-1" style="font-family: BDOGrotesk;" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="background-color: #1d1d1d;">
+            <div class="modal-header justify-content-center">
+                <p class="display-9 fw-bold modal-title text-white">Please login or register before accessing this site:</p>
+            </div>
+            <div class="modal-body justify-content-between">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <button class="btn btn-primary"><a href="login.php" style="text-decoration: none" class="text-white">Login</a></button>
+                        </div>
+                        <div class="col-6 text-center">
+                            <button class="btn btn-primary"><a href="register.php" style="text-decoration: none" class="text-white">Register</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 <script>
     const session = document.getElementById('session');
     const loginButton = document.getElementById('loginbutton');
     const registerButton = document.getElementById('registerbutton');
     const logoutButton = document.getElementById('logoutButton');
     const settingsButton = document.getElementById('settingsButton');
+    const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
 
     console.log(session.textContent.trim());
 
@@ -121,9 +144,11 @@ if (isset($_POST['submitButton'])) {
         registerButton.style.display = 'none';
         logoutButton.style.display = 'block';
         settingsButton.style.display = 'block';
+        loginModal.hide();
     } else {
         logoutButton.style.display = 'none';
         settingsButton.style.display = 'none';
+        loginModal.show();
     }
 
 </script>
@@ -137,6 +162,5 @@ if (isset($_POST['submitButton'])) {
     }
 </script>
 <script src="../js/index.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
